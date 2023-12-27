@@ -1,0 +1,64 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:head>
+        <title> JavaServer Faces aplikazioa </title>
+    </h:head>
+    <h:body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+       <h1 style="color: #333; text-align: center;">Create Question</h1>
+    	<!-- -->
+    	<h:form id="form" style="text-align: center; margin-top: 20px;">
+    		<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+    			<div style="margin: 10px;">
+    				<p:calendar id="data" value="#{createQuestion.data}" navigator="true" mode="inline">
+						<p:ajax event="dateSelect" listener="#{createQuestion.onDateSelect}" update="mezuak eventTable"></p:ajax>
+					</p:calendar>
+    			</div>
+    			<div style="margin: 10px; max-height: 220px; min-height: 220px; overflow-y: auto;">
+    				<p:dataTable id="eventTable" value="#{createQuestion.events}" var="event" selectionMode="single"
+						 selection="#{createQuestion.event}" border="1" rowKey="#{event.eventNumber}"
+						 style="margin: auto;">
+	
+						<p:column headerText="Event#"> #{event.eventNumber} </p:column>
+						<p:column headerText="Event"> #{event.description} </p:column>
+						<p:ajax event="rowSelect" listener="#{createQuestion.onEventSelect}"
+								update=":form:mezuak"></p:ajax>
+					</p:dataTable>
+    			</div>
+    		</div>
+    		<div style="margin-top: 20px;">
+	    			<table style="margin: auto;">
+					<tr>
+						<td>Question:</td>
+						<td><h:inputText id="question" value="#{createQuestion.question}" style="width: 100%;"></h:inputText></td>
+					</tr>
+					<tr>
+						<td>Min bet:</td>
+						<td><h:inputText id="minBet" value="#{createQuestion.minBet}" style="width: 100%;"></h:inputText></td>
+					</tr>
+				</table> 
+    		</div>
+		    
+			<p:panel style="border: 1px solid #ccc; padding: 10px; border-radius: 5px; background-color: #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-top: 20px;">	
+				<h:commandButton class="button" value="Create Question" action="#{createQuestion.addQuestion}" update=":form:mezuak :form:eventTable :form:data"
+					style="font-size: 16px; margin: 5px; padding: 10px 20px; background-color: #4CAF50; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;" />
+                	
+    			<h:commandButton value="Back" immediate="true" action="main" 
+    				style="font-size: 16px; margin: 5px; padding: 10px 20px; background-color: #4CAF50; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;" /> 
+			</p:panel>
+			<h:messages id="erroreak" style="color:red" />
+			<h:messages id="mezuak" style="color: blue; margin-top: 10px;" />
+		</h:form>
+    	 
+		<!--  
+    	<p id="msg" style="color: red;"></p>
+    	<p id="error" style="color: red;"></p>	-->
+    </h:body>
+</f:view>
+
+</html>

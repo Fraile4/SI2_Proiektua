@@ -1,0 +1,37 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:head>
+        <title> JavaServer Faces aplikazioa </title>
+    </h:head>
+    <h:body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+        <h1 style="color: #333; text-align: center;">Questions</h1>
+        <!--  -->
+	    <h:form id="form" style="text-align: center; margin-top: 20px;">
+	    	<div style="margin-top: 20px; max-width: 800px; margin-left: auto; margin-right: auto;">  
+	    		<p:panel header="Questions:"> 		
+			    	<p:dataTable id="questionTable" value="#{createQuestion.questions2}"
+						var="ques" selectionMode="single" selection="#{createQuestion.galdera}"
+						border="1" rowKey="#{ques.questionNumber}">
+							<p:column headerText="Question Number">#{ques.questionNumber}</p:column>
+							<p:column headerText="Question">#{ques.question}</p:column>
+							<p:column headerText="Bet Minimum">#{ques.betMinimum}</p:column>
+					</p:dataTable> 
+				</p:panel> 	
+	    	</div> 
+        
+			<p:panel style="border: 1px solid #ccc; padding: 10px; border-radius: 5px; background-color: #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-top: 20px;">
+    			<h:commandButton value="Back" immediate="true" action="back" 
+					style="font-size: 16px; margin: 5px; padding: 10px 20px; background-color: #4CAF50; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;" />  
+			</p:panel>
+			<h:messages id="mezuak" style="color:blue" />
+		</h:form>
+	</h:body>
+</f:view> 
+
+</html>

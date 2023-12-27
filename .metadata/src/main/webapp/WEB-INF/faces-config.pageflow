@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" comment="" id="pf17005845242930" configfile="/BetsJSFHibernate/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="CreateQuestion.xhtml" x="288" y="204" id="pf17015197577920" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf17023040537090" inlinks="pf17015197577921" path="/CreateQuestion.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="FindQuestions.xhtml" x="288" y="408" id="pf17015197577922" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf17023042715381" inlinks="pf17015197577923" path="/FindQuestions.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Main.xhtml" x="76" y="313" id="pf17015197577924" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" outlinks="pf17015197577921 pf17015197577923 pf17032506999651" inlinks="pf17023040537090 pf17023042715381 pf17032509428564" path="/Main.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ShowQuestions.xhtml" x="198" y="481" id="pf17032506594530" outlinks="pf17032508705542 pf17032509428564" inlinks="pf17032506999651 pf17032509428565" path="/ShowQuestions.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ShowQuestions2.xhtml" x="528" y="492" id="pf17032508705543" outlinks="pf17032509428565" inlinks="pf17032508705542" path="/ShowQuestions2.xhtml"/>
+  <links id="pf17015197577921" target="pf17015197577920" source="pf17015197577924" outcome="create"/>
+  <links id="pf17015197577923" target="pf17015197577922" source="pf17015197577924" outcome="find"/>
+  <links id="pf17023040537090" target="pf17015197577924" source="pf17015197577920" outcome="main"/>
+  <links id="pf17023042715381" target="pf17015197577924" source="pf17015197577922" outcome="main"/>
+  <links id="pf17032506999651" target="pf17032506594530" source="pf17015197577924" outcome="showQuestions"/>
+  <links id="pf17032508705542" target="pf17032508705543" source="pf17032506594530" outcome="showQuestions2"/>
+  <links id="pf17032509428564" target="pf17015197577924" source="pf17032506594530" outcome="main"/>
+  <links id="pf17032509428565" target="pf17032506594530" source="pf17032508705543" outcome="back"/>
+</pageflow:Pageflow>

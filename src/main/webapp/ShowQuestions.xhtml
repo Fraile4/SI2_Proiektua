@@ -1,0 +1,34 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:head>
+        <title> JavaServer Faces aplikazioa </title>
+    </h:head>
+    <h:body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+        <h1 style="color: #333; text-align: center;">Question Date</h1>
+        <!--  -->
+	    <h:form id="form" style="text-align: center; margin-top: 20px;">
+	    	<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+	    		<div style="margin: 10px;">
+	    			<p:calendar id="data" value="#{createQuestion.data}" navigator="true" mode="inline">
+						<p:ajax event="dateSelect" listener="#{createQuestion.onDateSelect}" update="mezuak"></p:ajax>
+					</p:calendar>
+	    		</div>
+	    	</div>
+			<p:panel style="border: 1px solid #ccc; padding: 10px; border-radius: 5px; background-color: #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-top: 20px;">
+				<h:commandButton value="Show Questions" immediate="true" action="showQuestions2" 
+					style="font-size: 16px; margin: 5px; padding: 10px 20px; background-color: #4CAF50; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;" /> 
+    			<h:commandButton value="Back" immediate="true" action="main" 
+					style="font-size: 16px; margin: 5px; padding: 10px 20px; background-color: #4CAF50; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;" />  
+			</p:panel>
+			<h:messages id="mezuak" style="color:blue" />
+		</h:form>
+	</h:body>
+</f:view> 
+
+</html>
